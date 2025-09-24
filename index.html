@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Finspo Assistant</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bubble">
+      <p>Hi, I’m Finny. I’ve got you — let’s make this easy 💚</p>
+      <span class="bubble-tail"></span>
+    </div>
+    <img class="mascot" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f99a.svg"
+         alt="Finny the Peacock" />
+    <h1>You’re not alone</h1>
+    <p class="sub">Support is here — anytime, anywhere. I’ll guide you through the home-loan journey, step by step.</p>
+    <button id="startWizard" class="cta">Let’s get to know you</button>
+    <div class="fineprint">General information only. For advice, a Finspo broker will assist.</div>
+  </section>
+
+  <!-- Wizard and Chat share this one card -->
+  <section id="interactionSection" class="interaction">
+    <div class="w-card" id="interactionCard">
+
+      <!-- WIZARD -->
+      <div id="wizardContent" class="hidden">
+        <div class="w-head">
+          <h2 id="w-title">What brings you in today?</h2>
+          <p id="w-desc">Choose the option that best matches your goal.</p>
+        </div>
+        <form id="w-form"></form>
+        <div class="w-controls">
+          <button id="w-prev" class="btn ghost" type="button">Previous</button>
+          <div class="w-progress"><div id="w-bar" class="w-bar"></div></div>
+          <button id="w-next" class="btn" type="button">Next</button>
+        </div>
+        <div class="w-qx">Question <span id="w-idx">1</span> of <span id="w-total">2</span></div>
+      </div>
+
+      <!-- CHAT (replaces wizard when finished) -->
+      <div id="chatContainer" class="hidden">
+        <div class="chat-header">
+          <div style="display:flex;align-items:center;gap:10px">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f99a.svg"
+                 alt="Peacock" style="width:28px;height:28px">
+            <div>
+              <div class="chat-title">Finny the Peacock</div>
+              <div class="chat-sub">Your friendly Finspo companion</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="chatBody" class="chat-body"></div>
+
+        <div class="chat-footer">
+          <div id="chipRow" class="chips-row"></div>
+          <form id="chatForm" autocomplete="off">
+            <input id="chatInput" type="text" placeholder="Type your message..." />
+            <button type="submit" class="send">Send</button>
+          </form>
+          <div class="disclaimer">General information only. For advice, a Finspo broker will assist.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

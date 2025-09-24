@@ -1,0 +1,71 @@
+:root{
+  --bg:#0b1526; --panel:#101b33; --accent:#22c55e; --accent2:#5da8ff;
+  --text:#e8eefc; --muted:#a8bad7; --card:#0f1a31; --line:#1b2a4a;
+  --bubble-bot:#17213a; --bubble-user:#1f2c4d; --shadow:0 14px 40px rgba(0,0,0,.35);
+  --radius:22px;
+}
+*{box-sizing:border-box} html,body{height:100%}
+body{margin:0;background:linear-gradient(180deg,#0b1526,#08101c 40%,#03070e);color:var(--text);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+/* HERO */
+.hero{max-width:920px;margin:0 auto;padding:60px 20px 70px;text-align:center}
+.hero h1{font-size:46px;margin:12px 0 8px}
+.hero .sub{color:var(--muted);font-size:18px;margin:0 auto 20px;max-width:660px}
+.mascot{width:110px;height:110px;margin:18px auto 10px;display:block;filter:drop-shadow(0 8px 14px rgba(0,0,0,.25))}
+.bubble{display:inline-block;position:relative;background:#e4ffe8;color:#0b3b1b;border-radius:16px;padding:12px 14px;margin-top:8px;font-weight:600}
+.bubble-tail{position:absolute;left:40px;bottom:-10px;width:14px;height:14px;background:#e4ffe8;transform:rotate(45deg)}
+.cta{background:linear-gradient(90deg,#5b7cfa,#2dd08d);color:white;border:none;border-radius:999px;padding:14px 20px;
+  font-weight:700;box-shadow:var(--shadow);cursor:pointer}
+.fineprint{color:#8ea4c9;font-size:12px;margin-top:10px}
+
+/* LAYOUT: wizard/chat share same card */
+.interaction{display:flex;justify-content:center;align-items:flex-start;padding:0 16px 70px}
+.w-card{width:100%;max-width:820px;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-top:24px}
+
+/* Wizard UI */
+.w-head h2{margin:6px 0 6px}
+.w-head p{margin:0;color:var(--muted)}
+#w-form{margin-top:12px}
+.opt{display:flex;align-items:center;gap:12px;border:1px solid #2c3c63;background:#122042;border-radius:14px;padding:14px;margin:10px 0;cursor:pointer}
+.opt input{accent-color:var(--accent)}
+.opt:hover{border-color:#3862aa;filter:brightness(1.06)}
+.w-controls{display:flex;align-items:center;gap:10px;margin-top:18px}
+.btn{background:var(--accent);color:#08170f;border:none;border-radius:12px;padding:10px 16px;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:#b8c7e7;border:1px solid #2c3c63}
+.w-progress{flex:1;height:10px;background:#0b1526;border-radius:999px;border:1px solid #20325a;overflow:hidden}
+.w-bar{height:100%;width:0;background:linear-gradient(90deg,#5b7cfa,#2dd08d)}
+.w-qx{color:#9bb0d6;font-size:12px;margin-top:6px;text-align:right}
+
+/* Helpers */
+.hidden{display:none !important}
+
+/* Chat uses same card */
+#chatContainer{display:flex;flex-direction:column;height:500px;opacity:0;transform:translateY(8px);transition:opacity .25s ease, transform .25s ease}
+#chatContainer.show{opacity:1;transform:translateY(0)}
+.chat-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--line);background:#0f1a31}
+.chat-title{font-weight:700}
+.chat-sub{font-size:12px;color:#9fb2d0}
+.chat-body{flex:1;padding:14px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:transparent}
+.msg{max-width:78%;padding:10px 12px;border-radius:12px;line-height:1.35;font-size:14px;word-wrap:break-word;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.bot{background:var(--bubble-bot);border-top-left-radius:4px}
+.user{background:var(--bubble-user);border-top-right-radius:4px;margin-left:auto}
+.typing{display:inline-flex;gap:4px;align-items:center}
+.dot{width:6px;height:6px;border-radius:50%;background:#6fa0ff;opacity:.5;animation:blink 1s infinite ease-in-out}
+.dot:nth-child(2){animation-delay:.2s}.dot:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,100%{opacity:.2}50%{opacity:1}}
+.chat-footer{border-top:1px solid var(--line);padding:10px;background:#0f1a31}
+#chatForm{display:flex;gap:8px;margin-top:8px}
+#chatInput{flex:1;padding:10px 12px;background:#0d1830;border:1px solid #1a2848;color:var(--text);border-radius:10px;outline:none}
+.send{background:var(--accent);color:#08170f;border:none;border-radius:10px;padding:0 14px;font-weight:700;cursor:pointer}
+.disclaimer{margin-top:6px;color:#9fb2d0;font-size:11px}
+.chips-row{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#1f2c4d;color:#e8eefc;border:1px solid #2c3c63;border-radius:999px;padding:6px 10px;font-size:12px;cursor:pointer}
+.chip:hover{filter:brightness(1.08)}
+
+@media (max-width:520px){
+  .hero{padding:46px 16px 70px}
+  .hero h1{font-size:36px}
+  #chatContainer{height:65vh}
+}
